@@ -1,5 +1,6 @@
 package todo;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -66,5 +67,13 @@ public class ToDoTest {
     @Then("the task {string} will be added to my ToDo list")
     public void theTaskWillBeAddedToMyToDoList(String task) {
         driver.findElement(By.xpath("//span[text()='" + task + "']"));
+    }
+
+    @And("I have my example ToDo list")
+    public void iHaveMyExampleToDoList() {
+        iEnterMyTask("Go to the store");
+        iClickTheAddButton();
+        iEnterMyTask("Go to the store again");
+        iClickTheAddButton();
     }
 }
